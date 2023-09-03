@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  php:
+    build:
+      ./
+    volumes:
+      - ./src/lesson1:/var/www/html
+
+  db:
+   container_name: db
+   image: mysql
+   restart: always
+   environment:
+    MYSQL_ROOT_PASSWORD: 123
+    MYSQL_DATABASE: testdb
+    MYSQL_USER: user
+    MYSQL_PASSWORD: pswd
+   ports:
+     - "9906:3306"
