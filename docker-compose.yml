@@ -5,7 +5,7 @@ services:
     build:
       ./
     volumes:
-      - ./src/lesson1:/var/www/html
+      - ./:/var/www/html
 
   db:
    container_name: db
