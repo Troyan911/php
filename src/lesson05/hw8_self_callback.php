@@ -1,12 +1,11 @@
 <?php
 declare(strict_types=1);
 
-function multiply(int $arg1, int $arg2, ? closure $print_result = null): int
+function multiply(int $arg1, int $arg2, ?closure $print_result = null): int
 {
     $result = $arg1 * $arg2;
-    if ($print_result) {
-        $print_result($result);
-    }
+    $print_result ? $print_result($result) : null;
+
     return $result;
 }
 
