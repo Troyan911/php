@@ -4,14 +4,9 @@ ob_start();
 include('index.html');
 $content = ob_get_clean();
 
-$keywords_should_be_bold = ["Bold text", "Another bold text"];
-$keywords_should_be_underscored = ["Underscored text", "Another underscored text"];
-
-$keywords_bold = array_map(fn($item) => "<b>$item</b>", $keywords_should_be_bold);
-$keywords_underscored = array_map(fn($item) => "<u>$item</u>", $keywords_should_be_underscored);
-
-$content = str_replace($keywords_should_be_bold, $keywords_bold, $content);
-$content = str_replace($keywords_should_be_underscored, $keywords_underscored, $content);
+wrap_keywords($content, ["Bold text", "Another bold text"], "b");
+wrap_keywords($content, ["Underscored text", "Another underscored text"], "u");
+wrap_keywords($content, ["Italic text"], "i");
 
 echo $content;
 
@@ -19,3 +14,7 @@ $file = fopen(__DIR__."/new_index.html", "w");
 fwrite($file, $content);
 fclose($file);
 
+function wrap_keywords(string &$content, array $keywords, string $tag) : void {
+    $wrapped_keywords = array_map(fn($item) => "<$tag>$item</$tag>", $keywords);
+    $content = str_replace($keywords, $wrapped_keywords, $content);
+}
