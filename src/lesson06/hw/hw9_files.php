@@ -18,10 +18,9 @@ $fread = fopen($fpath, "r");
 while (($line = fgets($fread)) !== false) {
     $farr[] = $line;
 }
-echo $farr[count($farr) - 1];
+echo "Last line from file (v1): {$farr[count($farr) - 1]}";
 fclose($fread);
 
 //get last line - variant2
 $data = file($fpath);
-echo $data[count($data) - 1];
-
+echo "Last line from file (v2): {$data[count($data) - 1]}";
