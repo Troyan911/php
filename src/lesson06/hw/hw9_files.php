@@ -1,7 +1,7 @@
 <?php
 
 //write file
-$fpath = __DIR__."/storage.txt";
+$fpath = __DIR__ . "/storage.txt";
 
 echo "Type some text for saving in file: ";
 $input = fgets(STDIN); //. PHP_EOL;
@@ -15,13 +15,13 @@ $fread = fopen($fpath, "r");
 
 
 //get last line - variant 1
-while(($line = fgets($fread)) !== false) {
+while (($line = fgets($fread)) !== false) {
     $farr[] = $line;
 }
-echo $farr[count($farr)-1];
+echo $farr[count($farr) - 1];
 fclose($fread);
 
 //get last line - variant2
 $data = file($fpath);
-echo $data[count($data)-1];
+echo $data[count($data) - 1];
 
