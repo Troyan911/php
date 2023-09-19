@@ -6,7 +6,8 @@ $fibonacci1 = function (int $max): Generator {
     $curr = 0;
     while ($curr < $max) {
         yield $curr;
-        [$prev, $curr] = [$curr, $prev != null ? $curr + $prev : 1];
+        $next = $prev != null ? $curr + $prev : 1;
+        [$prev, $curr] = [$curr, $next];
     }
 };
 
