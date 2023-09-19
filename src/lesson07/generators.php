@@ -66,7 +66,4 @@ $start = memory_get_usage();
 //$range = range_gene(1, 1000);
 //$arr = range(1, 1000);
 $end = memory_get_usage();
-echo $end-$start;
-
-echo "__";
-echo $var = 2+3;
+echo "Memory diff: " . ($end - $start);
