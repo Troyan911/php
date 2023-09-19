@@ -67,3 +67,7 @@ $start = memory_get_usage();
 //$arr = range(1, 1000);
 $end = memory_get_usage();
 echo "Memory diff: " . ($end - $start);
+
+foreach ($gene as $key => $value) {
+    echo "$key => $value";
+}
