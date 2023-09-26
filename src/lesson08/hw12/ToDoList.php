@@ -17,8 +17,6 @@ class ToDoList
         $this->tasks = $this->readList($fileName);
         $this->fileName = $fileName;
         $this->delimiter = $delimiter;
-
-//        print_r($this->tasks);
     }
 
     public function addTask(string $name, int $priority): void
@@ -34,8 +32,7 @@ class ToDoList
             $this->isTaskExists($taskId);
             unset($this->tasks[$taskId]);
             $this->saveList($this->fileName, $this->tasks);
-        }
-        catch (TaskNotFoundException $e) {
+        } catch (TaskNotFoundException $e) {
             echo $e->getMessage();
         }
     }
@@ -46,8 +43,7 @@ class ToDoList
             $this->isTaskExists($taskId);
             $this->tasks[$taskId]->complete();
             $this->saveList($this->fileName, $this->tasks);
-        }
-        catch (TaskNotFoundException $e) {
+        } catch (TaskNotFoundException $e) {
             echo $e->getMessage();
         }
     }
@@ -59,21 +55,22 @@ class ToDoList
         }
     }
 
-
     public function getTasks(): array
     {
         return $this->tasks;
     }
 
     //todo
-    private function sortTaskByPrio(array $tasks) : array {
-        return usort($tasks, function ($a, $b) : int {
-            return strcmp($a->getPriority, $b->getPriority);
-        });
-    }
+//    private function sortTaskByPrio(array $tasks): array
+//    {
+//        return usort($tasks, function ($a, $b): int {
+//            return strcmp($a->getPriority, $b->getPriority);
+//        });
+//    }
 
     private function readList(string $fileName): ?array
     {
+
         try {
             $file = new File($fileName);
             $lines = $file->read();
@@ -93,7 +90,12 @@ class ToDoList
 
     private function line2task(string $line): ?Task
     {
-        $props = explode($this->delimiter, trim($line));
+        //todo ???
+        echo "Delimiter: ";
+        var_dump($this->delimiter);
+
+        $props = explode("#", trim($line));
+
         $id = (int)$props[0];
         $name = $props[1];
         $prio = (int)$props[2];

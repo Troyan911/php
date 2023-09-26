@@ -1,14 +1,13 @@
 <?php
 declare(strict_types=1);
 
-require_once "Config.php";
 require_once "ToDoList.php";
 
 
 $fileName = "todolist.txt";
-$separator = "#";
+$delimiter = "#";
 
-$todoList = new ToDoList($fileName);
+$todoList = new ToDoList($fileName, $delimiter);
 
 $todoList->addTask("new task from index file", 777);
 $todoList->deleteTask(8);
