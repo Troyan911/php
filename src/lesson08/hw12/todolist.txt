@@ -1,0 +1,10 @@
+0#name1#1#Open
+1#name2#2#Done
+3#name3#3#Open
+9#new task from index file#777#Open
+10#new task from index file#777#Done
+11#new task from index file#777#Open
+12#new task from index file#777#Open
+13#new task from index file#777#Open
+14#new task from index file#777#Open
+15#new task from index file#777#Done
