@@ -14,13 +14,14 @@ class ToDoList
 
     public function __construct(string $fileName, string $delimiter)
     {
-        $this->tasks = $this->readList($fileName);
+        $this->tasks = $this->readList($fileName); //todo private prop cant be used in nested fn?
         $this->fileName = $fileName;
         $this->delimiter = $delimiter;
     }
 
     public function addTask(string $name, int $priority): void
     {
+        echo $this->delimiter;
         $newId = array_key_last($this->tasks) + 1;
         $this->tasks[$newId] = new Task($newId, $name, $priority);
         $this->saveList($this->fileName, $this->tasks);
@@ -28,6 +29,7 @@ class ToDoList
 
     public function deleteTask(int $taskId): void
     {
+        echo $this->delimiter;
         try {
             $this->isTaskExists($taskId);
             unset($this->tasks[$taskId]);
@@ -39,6 +41,7 @@ class ToDoList
 
     public function completeTask(int $taskId): void
     {
+        echo $this->delimiter;
         try {
             $this->isTaskExists($taskId);
             $this->tasks[$taskId]->complete();
@@ -70,6 +73,8 @@ class ToDoList
 
     private function readList(string $fileName): ?array
     {
+        echo "Delimiter: ";
+        var_dump($this->delimiter);
 
         try {
             $file = new File($fileName);
@@ -91,8 +96,6 @@ class ToDoList
     private function line2task(string $line): ?Task
     {
         //todo ???
-        echo "Delimiter: ";
-        var_dump($this->delimiter);
 
         $props = explode("#", trim($line));
 
