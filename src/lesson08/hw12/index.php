@@ -3,12 +3,15 @@ declare(strict_types=1);
 
 require_once "ToDoList.php";
 
-
 $fileName = "todolist.txt";
 $delimiter = "#";
 
-$todoList = new ToDoList($fileName, $delimiter);
+$list = new ToDoList($fileName, $delimiter);
 
-$todoList->addTask("new task from index file", 777);
-$todoList->deleteTask(8);
-$todoList->completeTask(15);
+$randNumber = rand(0, 20);
+$list->addTask("task" . $randNumber, $randNumber);
+
+$list->deleteTask(rand(0, 20));
+$list->completeTask(rand(0, 20));
+
+$list->getTasks();
