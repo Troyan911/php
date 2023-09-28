@@ -1,12 +1,21 @@
 <?php
 declare(strict_types=1);
 class ParentClass {
-    protected $text = "some text";
+
+    private $text = "some text";
 
     /**
+     * @return string
+     */
+    public function getText() : string {
+        return ucfirst($this->text) . PHP_EOL;
+    }
+
+    /**
+     * @param string $value
      * @return void
      */
-    public function print() : void {
-        echo ucfirst($this->text) . PHP_EOL;
+    public function printText(string $value) {
+        echo $value;
     }
 }
