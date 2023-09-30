@@ -8,6 +8,11 @@ class Rectangle extends Figure
     private float $width;
     private float $height;
 
+    /**
+     * @param float $width
+     * @param float $height
+     * @throws Exception
+     */
     public function __construct(float $width, float $height)
     {
         $this->setWidth($width);
@@ -16,29 +21,43 @@ class Rectangle extends Figure
 
     /**
      * @param float $width
+     * @return void
+     * @throws Exception
      */
     public function setWidth(float $width): void
     {
-        $this->isValueCorrect($width);
-        $this->width = $width;
+        if ($this->isValueCorrect($width, "width")) {
+            $this->width = $width;
+        }
     }
 
     /**
      * @param float $height
+     * @return void
+     * @throws Exception
      */
     public function setHeight(float $height): void
     {
-        $this->isValueCorrect($height);
-        $this->height = $height;
+        if ($this->isValueCorrect($height, "height")) {
+            $this->height = $height;
+        }
     }
 
+    /**
+     * @return float
+     */
     public function calcArea(): float
     {
-        return $this->width * $this->height;
+        $this->area = $this->width * $this->height;
+        return $this->area;
     }
 
+    /**
+     * @return float
+     */
     public function calcPerimeter(): float
     {
-        return ($this->width + $this->height) * 2;
+        $this->perimeter = ($this->width + $this->height) * 2;
+        return $this->perimeter;
     }
 }

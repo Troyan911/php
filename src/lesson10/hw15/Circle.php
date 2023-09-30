@@ -8,6 +8,10 @@ class Circle extends Figure
 
     private float $radius;
 
+    /**
+     * @param float $radius
+     * @throws Exception
+     */
     public function __construct(float $radius)
     {
         $this->setRadius($radius);
@@ -15,20 +19,31 @@ class Circle extends Figure
 
     /**
      * @param float $radius
+     * @return void
+     * @throws Exception
      */
     private function setRadius(float $radius): void
     {
-        $this->isValueCorrect($radius);
-        $this->radius = $radius;
+        if ($this->isValueCorrect($radius, "radius")) {
+            $this->radius = $radius;
+        }
     }
 
+    /**
+     * @return float
+     */
     public function calcArea(): float
     {
-        return pi() * pow($this->radius, 2);
+        $this->area = pi() * pow($this->radius, 2);
+        return $this->area;
     }
 
+    /**
+     * @return float
+     */
     public function calcPerimeter(): float
     {
-        return 2 * pi() * $this->radius;
+        $this->perimeter = 2 * pi() * $this->radius;
+        return $this->perimeter;
     }
 }

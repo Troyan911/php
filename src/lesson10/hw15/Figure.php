@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 abstract class Figure
 {
-
-    private float $area;
-    private float $perimeter;
+    protected float $area;
+    protected float $perimeter;
 
     /**
      * @return float
@@ -23,7 +22,7 @@ abstract class Figure
     public function printArea(): void
     {
         $this->calcArea();
-        echo $this->area;
+        echo "Square of " . static:: class . " is $this->area\n";
     }
 
     /**
@@ -32,18 +31,20 @@ abstract class Figure
     public function printPerimeter(): void
     {
         $this->calcPerimeter();
-        echo $this->perimeter;
+        echo "Perimeter of " . static:: class . " is $this->perimeter\n";
     }
 
     /**
      * @param float $propValue
-     * @return void
+     * @param string $propName
+     * @return bool
      * @throws Exception
      */
-    protected function isValueCorrect(float $propValue)
+    protected function isValueCorrect(float $propValue, string $propName): bool
     {
         if ($propValue <= 0) {
-            throw new Exception("$$propValue with $propValue is incorrect");
+            throw new Exception("Cant't create " . static::class . ". Param $propName with value $propValue is incorrect\n");
         }
+        return true;
     }
 }

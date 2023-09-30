@@ -3,21 +3,51 @@
 require_once "Circle.php";
 require_once "Rectangle.php";
 
+printInfo(createCircle(10));
+printInfo(createRectangle(10, 5));
+printInfo(createCircle(-10));
+printInfo(createRectangle(0, -5));
 
-printInfo(new Circle(10));
-printInfo(new Rectangle(10, 5));
-//createFigureAndPrintInfo(Circle::class, 10);
-
-
-function printInfo(Figure $figure)
+/**
+ * @param float $radius
+ * @return Figure|null
+ */
+function createCircle(float $radius): ?Figure
 {
+    $circle = null;
     try {
-//        $obj = new $figure(extract($props));
-
-        echo $figure::class . PHP_EOL;
-        $figure->printArea() . PHP_EOL;
-        $figure->printPerimeter() . PHP_EOL . PHP_EOL;
+        $circle = new Circle($radius);
     } catch (Exception $e) {
         echo $e->getMessage();
+    }
+    return $circle;
+}
+
+/**
+ * @param float $width
+ * @param float $height
+ * @return Figure|null
+ */
+function createRectangle(float $width, float $height): ?Figure
+{
+    $rect = null;
+    try {
+        $rect = new Rectangle($width, $height);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+    return $rect;
+}
+
+/**
+ * @param Figure|null $figure
+ * @return void
+ */
+function printInfo(?Figure $figure)
+{
+    if ($figure !== null) {
+        $figure->printArea();
+        $figure->printPerimeter();
+        echo PHP_EOL;
     }
 }
