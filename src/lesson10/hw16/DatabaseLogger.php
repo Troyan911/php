@@ -24,7 +24,7 @@ class DatabaseLogger implements LoggerInterface
      * @param string $pswd
      * @return void
      */
-    private function setConnection(string $host, string $user, string $pswd)
+    private function setConnection(string $host, string $user, string $pswd): void
     {
         try {
             $this->connection = new PDO("mysql:host=$host;dbname=myDB", $user, $pswd);
