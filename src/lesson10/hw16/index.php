@@ -17,7 +17,7 @@ writeLog($fileLogger, LogLevel::ERROR, "User not found");
  * @param string $message
  * @return void
  */
-function writeLog(LoggerInterface $logger, LogLevel $logLevel, string $message)
+function writeLog(LoggerInterface $logger, LogLevel $logLevel, string $message): void
 {
     $logger->log($logLevel, $message);
 }
