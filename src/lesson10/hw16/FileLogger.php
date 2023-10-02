@@ -21,6 +21,7 @@ class FileLogger implements LoggerInterface
      */
     private function setFilePath(string $filePath): void
     {
+        //create file if not exists
         if (!file_exists($filePath)) {
             file_put_contents($filePath, "");
         }
@@ -28,11 +29,11 @@ class FileLogger implements LoggerInterface
     }
 
     /**
-     * @param string $message
      * @param LogLevel $level
+     * @param string $message
      * @return void
      */
-    public function log(string $message, LogLevel $level): void
+    public function log(LogLevel $level, string $message): void
     {
         $date = date(self::LOG_DATE_FORMAT);
         $row = sprintf("[%s][%s][%s]\n", $date, $level->value, $message);

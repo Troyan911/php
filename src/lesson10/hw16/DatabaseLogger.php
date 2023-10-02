@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once "LoggerInterface.php";
 
+//todo can include mistakes. will be updated later
 class DatabaseLogger implements LoggerInterface
 {
     private PDO $connection;
@@ -33,13 +34,12 @@ class DatabaseLogger implements LoggerInterface
     }
 
     /**
-     * @param string $message
      * @param LogLevel $level
+     * @param string $message
      * @return void
      */
-    public function log(string $message, LogLevel $level): void
+    public function log(LogLevel $level, string $message): void
     {
-        // TODO: Implement log() method
         $date = date('Y-m-d H:i:s');
         $query = "INSERT INTO Logs (datetime, level, message) VALUES ($date, $level->value, $message)";
 
