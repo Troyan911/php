@@ -1,0 +1,4 @@
+[2023-10-02 21:27:23][Debug][UserId=asd123]
+[2023-10-02 21:27:23][Info][User created]
+[2023-10-02 21:27:23][Warning][Incorrect password]
+[2023-10-02 21:27:23][Error][User not found]
