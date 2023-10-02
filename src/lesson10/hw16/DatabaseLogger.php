@@ -40,7 +40,7 @@ class DatabaseLogger implements LoggerInterface
      */
     public function log(LogLevel $level, string $message): void
     {
-        $date = date('Y-m-d H:i:s');
+        $date = date(self::LOG_DATE_FORMAT);
         $query = "INSERT INTO Logs (datetime, level, message) VALUES ($date, $level->value, $message)";
 
         try {
