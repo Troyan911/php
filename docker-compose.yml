@@ -2,10 +2,16 @@ version: '3'
 
 services:
   php:
+    environment:
+      - XDEBUG_SESSION=docker-server
     build:
-      ./
+      ./php
     volumes:
       - ./:/var/www/html
+      - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    ports:
+      - "81:80"
+
 
   db:
    container_name: db
