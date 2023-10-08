@@ -12,7 +12,7 @@ $user1->print();
 $company1 = tryCreateCompany("Google", "New York");
 $company1->print();
 
-$item1 = tryCreateItem("Gun", -10, Currency::USD);
+$item1 = tryCreateItem("Gun", 100, Currency::USD);
 $item1->print();
 
 /**
