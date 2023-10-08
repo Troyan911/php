@@ -12,7 +12,7 @@ trait Validator
     public function isValidName(string $name): void
     {
         if (strlen($name) < 2) {
-            throw new Exception("Name $name is too short\n");
+            throw new Exception("Name \"$name\" is too short\n");
         }
     }
 
@@ -24,7 +24,7 @@ trait Validator
     public function isValidCity(string $city): void
     {
         if (strlen($city) < 3) {
-            throw new Exception("City $city is incorrect\n");
+            throw new Exception("City \"$city\" is incorrect\n");
         }
     }
 
@@ -36,7 +36,7 @@ trait Validator
     public function isValidPrice(float $price): void
     {
         if ($price <= 0) {
-            throw new Exception("Price $price is incorrect\n");
+            throw new Exception("Price \"$price\" is incorrect\n");
         }
     }
 
@@ -48,7 +48,7 @@ trait Validator
     public function isValidPhone(string $phone): void
     {
         if (!str_starts_with($phone, PhoneFormat::UA->value)) {
-            throw new Exception("Phone $phone is incorrect\n");
+            throw new Exception("Phone \"$phone\" is incorrect\n");
         }
     }
 
@@ -60,7 +60,7 @@ trait Validator
     public function isValidEmail(string $email): void
     {
         if (!(str_contains($email, "@") && strlen($email) > 3)) {
-            throw new Exception("Email $email is incorrect\n");
+            throw new Exception("Email \"$email\" is incorrect\n");
         }
     }
 
