@@ -11,6 +11,12 @@ class User
     private string $email;
     private string $phone;
 
+    /**
+     * @param string $name
+     * @param string $email
+     * @param string $phone
+     * @throws Exception
+     */
     public function __construct(string $name, string $email, string $phone)
     {
         $this->setName($name);
@@ -20,6 +26,8 @@ class User
 
     /**
      * @param string $name
+     * @return void
+     * @throws Exception
      */
     public function setName(string $name): void
     {
@@ -28,7 +36,9 @@ class User
     }
 
     /**
-     * @param string $city
+     * @param string $email
+     * @return void
+     * @throws Exception
      */
     public function setEmail(string $email): void
     {
@@ -38,6 +48,8 @@ class User
 
     /**
      * @param string $phone
+     * @return void
+     * @throws Exception
      */
     public function setPhone(string $phone): void
     {
@@ -45,6 +57,9 @@ class User
         $this->phone = $phone;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return "User name: $this->name; Email: $this->email; Phone: $this->phone.";

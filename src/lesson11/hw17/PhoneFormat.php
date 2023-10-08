@@ -1,5 +1,6 @@
 <?php
 
-enum PhoneFormat : string {
+enum PhoneFormat: string
+{
     case UA = "+380";
 }

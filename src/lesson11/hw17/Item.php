@@ -15,6 +15,7 @@ class Item
      * @param string $name
      * @param float $price
      * @param Currency $currency
+     * @throws Exception
      */
     public function __construct(string $name, float $price, Currency $currency)
     {
@@ -25,6 +26,8 @@ class Item
 
     /**
      * @param string $name
+     * @return void
+     * @throws Exception
      */
     public function setName(string $name): void
     {
@@ -34,6 +37,8 @@ class Item
 
     /**
      * @param float $price
+     * @return void
+     * @throws Exception
      */
     public function setPrice(float $price): void
     {
@@ -43,6 +48,7 @@ class Item
 
     /**
      * @param Currency $currency
+     * @return void
      */
     public function setCurrency(Currency $currency): void
     {

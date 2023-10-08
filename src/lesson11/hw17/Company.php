@@ -13,6 +13,7 @@ class Company
     /**
      * @param string $companyName
      * @param string $city
+     * @throws Exception
      */
     public function __construct(string $companyName, string $city)
     {
@@ -22,6 +23,8 @@ class Company
 
     /**
      * @param string $companyName
+     * @return void
+     * @throws Exception
      */
     public function setCompanyName(string $companyName): void
     {
@@ -31,6 +34,8 @@ class Company
 
     /**
      * @param string $city
+     * @return void
+     * @throws Exception
      */
     public function setCity(string $city): void
     {
