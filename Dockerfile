@@ -8,8 +8,3 @@ RUN apt-get update && \
     docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp && \
     docker-php-ext-install gd && \
     a2enmod rewrite
-
-RUN docker-hillel-ext-install -j${nproc} pdo_mysql
-
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
