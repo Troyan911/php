@@ -15,7 +15,7 @@ class Crud
      * @param $sql
      * @return void
      */
-    public function createTable($sql)
+    public function createTable($sql): void
     {
         $this->executeQuery($sql);
     }
@@ -53,7 +53,6 @@ class Crud
         $row = $this->executeQuery($sql);
         $object->setId($this->connection->lastInsertId());
         return $row;
-
     }
 
     /**
@@ -72,7 +71,7 @@ class Crud
      * @param object $object
      * @return void
      */
-    public function displayRow(object $object)
+    public function displayRow(object $object): void
     {
         echo "<pre>";
         print_r($this->selectRow($object));
@@ -96,7 +95,6 @@ class Crud
         $sql .= " WHERE id = :id";
 
         $this->executeQuery($sql, $object);
-
     }
 
     /**
@@ -128,10 +126,12 @@ class Crud
         } else {
             echo $stmt->queryString . "<br>";
         }
+
         try {
             $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
+            exit;
         }
         return $fetchData ? $stmt->fetchAll() : null;
     }

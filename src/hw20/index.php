@@ -11,7 +11,6 @@ $crud = new Crud();
 
 $crud->dropTable(Blogs::class);
 $crud->dropTable(Users::class);
-
 $crud->createTable(Users::getCreateTableQuery());
 $crud->createTable(Blogs::getCreateTableQuery());
 
@@ -20,10 +19,11 @@ $crud->insertRow($user);
 $crud->displayRow($user);
 
 try {
-    $user->setName("new_user_name");
-    $user->setEmail("new_user_email@email.com");
+    $user->setName("new_user_name_$rand");
+    $user->setEmail("new_user_email_$rand@email.com");
 } catch (Exception $e) {
     echo $e->getMessage();
+    exit;
 }
 $crud->updateRow($user);
 $crud->displayRow($user);
@@ -38,7 +38,9 @@ try {
     $blog->setContent("new_content");
 } catch (Exception $e) {
     echo $e->getMessage();
+    exit;
 }
+$crud->updateRow($blog);
 $crud->displayRow($blog);
 
 

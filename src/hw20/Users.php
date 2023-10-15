@@ -35,6 +35,7 @@ class Users implements CrudInterface
 
         } catch (Exception $e) {
             echo $e->getMessage();
+            exit;
         }
     }
 
@@ -80,7 +81,6 @@ class Users implements CrudInterface
         //todo        $this->isValidEnum(enum: Sex, $sex);
         $this->sex = $sex->value;
     }
-
 }
 
 

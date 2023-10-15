@@ -33,6 +33,7 @@ class Blogs implements CrudInterface
             $this->setAuthorId($author_id);
         } catch (Exception $e) {
             echo $e->getMessage();
+            exit;
         }
     }
 
@@ -65,5 +66,4 @@ class Blogs implements CrudInterface
     {
         $this->author_id = $author_id;
     }
-
 }
