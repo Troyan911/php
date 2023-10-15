@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
+
 require_once "PhoneFormat.php";
 
-trait Validator
+trait ValidatorTrait
 {
     /**
      * @param string $name
@@ -11,8 +12,12 @@ trait Validator
      */
     public function isValidName(string $name): void
     {
-        if (strlen($name) < 2) {
-            throw new Exception("Name \"$name\" is too short\n");
+        $this->isValidText($name, 2);
+    }
+
+    public function isValidText(string $text, int $minLength) {
+        if (strlen($text) < $minLength) {
+            throw new Exception("Value \"$text\" is shorter then min length $minLength\n");
         }
     }
 
@@ -41,6 +46,17 @@ trait Validator
     }
 
     /**
+     * @param float $age
+     * @return void
+     */
+    public function isValidAge(float $age): void
+    {
+        if ($age <= 0) {
+            throw new Exception("Age \"$age\" is incorrect\n");
+        }
+    }
+
+    /**
      * @param string $phone
      * @return void
      * @throws Exception
@@ -63,5 +79,13 @@ trait Validator
             throw new Exception("Email \"$email\" is incorrect\n");
         }
     }
+
+    public function isValidEnum(object $enum, string $value) {
+        if($enum::tryFrom($value) == null) {
+            throw new Exception(get_class() . " with value \"$value\" is incorrect\n");
+
+        }
+    }
+
 
 }

@@ -1,0 +1,32 @@
+# CREATE TABLE `users`
+# (
+#     `id`    INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+#     `name`  CHAR(50)                    NOT NULL,
+#     `email` CHAR(100)                   NOT NULL UNIQUE,
+#     `age`   SMALLINT UNSIGNED DEFAULT NULL,
+#     `sex` ENUM('male', 'female', 'not selected') DEFAULT 'not selected'
+# );
+
+# CREATE TABLE `blogs`
+# (
+#     `id`    INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+#     `title`  CHAR(200)                    NOT NULL,
+#     `content` TEXT                   NOT NULL,
+#     `created_at` TIMESTAMP                   NOT NULL,
+#     `author_id` INT UNSIGNED NOT NULL,
+#     FOREIGN KEY (`author_id`) REFERENCES `users`(`id`) ON UPDATE CASCADE ON DELETE CASCADE
+#
+# );
+
+# INSERT INTO users VALUES (`Petro`, `Petro\'s blog`)
+#
+INSERT INTO users (`name`, `email`) VALUES ('Petro', 'petrob\'amper2@gmail.com');
+INSERT INTO users (`name`, `email`) VALUES ('Petro', current_timestamp);
+
+
+
+UPDATE users SET name = 'Mike', email = 'mike@gmail.com' WHERE id = 3;
+
+SELECT * FROM users;
+
+DELETE FROM users WHERE id = 7;

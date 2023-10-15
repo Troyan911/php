@@ -1,5 +1,6 @@
 <?php
 
+namespace hw17;
 trait PrintInfo
 {
     /**

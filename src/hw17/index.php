@@ -1,5 +1,11 @@
 <?php
 declare(strict_types=1);
+
+use hw17\Company;
+use hw17\Currency;
+use hw17\Item;
+use hw17\User;
+
 require_once "User.php";
 require_once "Company.php";
 require_once "Item.php";

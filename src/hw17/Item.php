@@ -1,11 +1,14 @@
 <?php
 declare(strict_types=1);
-require_once "Validator.php";
+
+namespace hw17;
+
+require_once "ValidatorTrait.php";
 require_once "PrintInfo.php";
 
 class Item
 {
-    use Validator, PrintInfo;
+    use \ValidatorTrait, PrintInfo;
 
     private string $name;
     private float $price;

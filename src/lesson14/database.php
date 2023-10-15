@@ -1,10 +1,9 @@
 <?php
-
 //echo phpinfo();
 
 try {
 
-    $dsn = 'mysql:host=mysql;port:3306;dbname=testdb';
+    $dsn = 'mysql:host=mysql;port=3306;dbname=testdb';
     $user = "root";
     $pswd = "123";
 
@@ -19,17 +18,26 @@ try {
     exit();
 }
 
-//$sql = "SELECT * FROM `blogs` WHERE `author_id` = ? AND id = ?";
-$sql = "SELECT * FROM `blogs` WHERE `author_id` = :author_id AND id = :id";
-
 $author_id = 3;
 $id = 1;
 
-$stmt = $connect->prepare($sql);
-$stmt->execute(["author_id" => $author_id, "id" => $id]);
+//$sql = "SELECT * FROM `blogs` WHERE `author_id` = ? AND id = ?";
+//$sql = "SELECT * FROM `blogs` WHERE `author_id` = :author_id AND id = :id";
+$sql = "SELECT * FROM `blogs`";
+
+//$stmt = $connect->prepare($sql);
+//$stmt->execute(["author_id" => $author_id, "id" => $id]);
+
+$stmt = $connect->query($sql);
+$blogs = $stmt->fetchAll();
+
+echo "<pre>";
+print_r($blogs);
+echo "</pre>";
+
 
 //$stmt = $connect->query($sql);
-
+/*
 $blogs = $stmt->fetchAll();
 
 foreach ($blogs as $blog) {
@@ -84,3 +92,5 @@ foreach ($blogs as $blog) {
 //    foreach ($relations as $relation)
 
 }
+
+*/
