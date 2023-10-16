@@ -1,6 +1,6 @@
 <?php
 
-trait CrudFieldsTrait
+trait TableFieldsTrait
 {
     private int $id;
 

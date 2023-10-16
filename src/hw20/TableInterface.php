@@ -1,6 +1,6 @@
 <?php
 
-interface CrudInterface
+interface TableInterface
 {
     /**
      * @return array

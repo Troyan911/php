@@ -1,13 +1,13 @@
 <?php
 
-require_once "CrudFieldsTrait.php";
-require_once "CrudInterface.php";
+require_once "TableFieldsTrait.php";
+require_once "TableInterface.php";
 require_once "Sex.php";
 require_once "../hw17/ValidatorTrait.php";
 
-class Users implements CrudInterface
+class Users implements TableInterface
 {
-    use CrudFieldsTrait;
+    use TableFieldsTrait;
     use ValidatorTrait;
 
     private string $name;
