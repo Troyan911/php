@@ -20,23 +20,23 @@ class IndexController
         $firstNumber = intval($_POST["firstNumber"]);
         $secondNumber = intval($_POST["secondNumber"]);
 
-//        $firstNumber = $this->validateInt($_POST["firstNumber"]);
-//        $secondNumber = $this->validateInt($_POST["secondNumber"]);
         echo "Result of adding $firstNumber and $secondNumber is " . $firstNumber + $secondNumber;
     }
 
+    /**
+     * @return void
+     */
     public function update(): void
     {
         echo "Method: put";
     }
 
+    /**
+     * @return void
+     */
     public function delete(): void
     {
         echo "Method: delete";
     }
 
-    private function validateInt(string $value) {
-        //todo
-        return var_filter($value, FILTER_VALIDATE_INT);
-    }
 }
