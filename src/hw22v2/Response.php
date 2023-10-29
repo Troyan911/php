@@ -54,10 +54,18 @@ class Response
         header("Content-Type: $contentType; charset=utf-8");
     }
 
-    private function setData(string $data) {
+    /**
+     * @param string $data
+     * @return void
+     */
+    private function setData(string $data): void
+    {
         $this->data = $data;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->data ?? "";
